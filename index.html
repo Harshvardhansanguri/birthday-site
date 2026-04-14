@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--
+  Setup Instructions
+  1. Put your birthday music file in this same folder (`public`) and name it `music.mp3`.
+  2. Put your photos in this same folder (`public`) and name them `img1.jpg`, `img2.jpg`, `img3.jpg`, `img4.jpg`, `img5.jpg`, and `img6.jpg`.
+  3. This project currently serves files from `/public`, so keep `index.html`, `style.css`, `script.js`, `music.mp3`, and your photos here for local use.
+  4. To deploy on GitHub Pages:
+     - Copy the contents of `/public` into your repository root or `/docs`
+     - Push the repo to GitHub
+     - Open GitHub > Settings > Pages
+     - Choose "Deploy from a branch"
+     - Select your branch and the root folder or `/docs`
+     - Save, then wait for the Pages link to appear
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Karuuu❤️</title>
+    <meta
+      name="description"
+      content="A romantic birthday surprise website with music, balloons, a candle interaction, gallery, and love note."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-glow" aria-hidden="true"></div>
+    <div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+    <div class="balloon-field" id="balloonField" aria-hidden="true"></div>
+
+    <section class="intro-screen" id="introScreen" aria-label="Birthday surprise intro">
+      <div class="intro-content">
+        <p class="eyebrow">A little surprise made with love</p>
+        <h1>Tap to open your surprise</h1>
+        <p class="intro-text">
+          This page will start the music and reveal everything after your first tap so it works better on mobile browsers.
+        </p>
+        <button class="primary-button" id="openSurpriseBtn" type="button">
+          Open the Surprise
+        </button>
+      </div>
+    </section>
+
+    <audio id="birthdaySong" loop preload="auto">
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button
+      class="music-toggle"
+      id="musicToggle"
+      type="button"
+      aria-label="Pause background music"
+      aria-pressed="false"
+    >
+      Pause Music
+    </button>
+
+    <main class="site-shell" id="siteShell">
+      <section class="hero-section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">For the most special girl</p>
+          <h1>Happy Birthday Karuuu❤️</h1>
+          <p class="hero-text">
+            Today is all about your smile, your laughter, your dreams, and the warmth you bring into my life just by being you.
+          </p>
+          <div class="typewriter-block">
+            <p class="typewriter-label">A message from my heart</p>
+            <p class="typewriter-text" id="typewriterText"></p>
+          </div>
+          <a class="scroll-link" href="#memories">See our memories</a>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="hero-orb"></div>
+          <div class="love-seal">
+            <span>Birthday Girl</span>
+            <strong>Karuuu</strong>
+            <small>made with love</small>
+          </div>
+          <div class="sparkle sparkle-one"></div>
+          <div class="sparkle sparkle-two"></div>
+          <div class="sparkle sparkle-three"></div>
+        </div>
+      </section>
+
+      <section class="celebration-section reveal" id="celebration">
+        <div class="section-copy">
+          <p class="eyebrow">Make a wish</p>
+          <h2>A sweet little birthday moment</h2>
+          <p>
+            Tap the candle flame to blow it out. A tiny celebration will burst right after your wish.
+          </p>
+          <p class="wish-status" id="wishStatus" aria-live="polite">
+            The candle is glowing just for you.
+          </p>
+        </div>
+
+        <div class="cake-stage" id="cakeStage">
+          <div class="cake-scene" id="cakeScene">
+            <button
+              class="candle-button"
+              id="candleButton"
+              type="button"
+              aria-label="Blow out the candle"
+            >
+              <span class="smoke smoke-one"></span>
+              <span class="smoke smoke-two"></span>
+              <span class="smoke smoke-three"></span>
+              <span class="flame" id="candleFlame"></span>
+              <span class="wick"></span>
+              <span class="candle-stick"></span>
+            </button>
+
+            <div class="cake-top"></div>
+            <div class="cake-drip"></div>
+            <div class="cake-layer cake-layer-top"></div>
+            <div class="cake-layer cake-layer-bottom"></div>
+            <div class="cake-dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="cake-plate"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section reveal" id="memories">
+        <div class="section-copy">
+          <p class="eyebrow">Our Memories</p>
+          <h2>All my favorite moments have you in them</h2>
+          <p>
+            Replace these placeholders with your own photos later by keeping the same file names.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item" type="button" data-index="0">
+            <img class="memory-photo" src="img1.jpg" alt="Memory 1" loading="lazy" />
+            <span>Memory 1</span>
+          </button>
+          <button class="gallery-item" type="button" data-index="1">
+            <img class="memory-photo" src="img2.jpg" alt="Memory 2" loading="lazy" />
+            <span>Memory 2</span>
+          </button>
+          <button class="gallery-item" type="button" data-index="2">
+            <img class="memory-photo" src="img3.jpg" alt="Memory 3" loading="lazy" />
+            <span>Memory 3</span>
+          </button>
+          <button class="gallery-item" type="button" data-index="3">
+            <img class="memory-photo" src="img4.jpg" alt="Memory 4" loading="lazy" />
+            <span>Memory 4</span>
+          </button>
+          <button class="gallery-item" type="button" data-index="4">
+            <img class="memory-photo" src="img5.jpg" alt="Memory 5" loading="lazy" />
+            <span>Memory 5</span>
+          </button>
+          <button class="gallery-item" type="button" data-index="5">
+            <img class="memory-photo" src="img6.jpg" alt="Memory 6" loading="lazy" />
+            <span>Memory 6</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="final-section reveal">
+        <p class="eyebrow">Forever Us</p>
+        <h2>I love you ❤️</h2>
+        <p>
+          Happy birthday, my love. I hope this little page makes you smile the way your love brightens my whole world.
+        </p>
+      </section>
+    </main>
+
+    <div class="memory-modal" id="memoryModal" aria-hidden="true" role="dialog" aria-modal="true">
+      <button class="modal-close" id="closeModal" type="button" aria-label="Close photo viewer">
+        ×
+      </button>
+      <button class="modal-nav modal-prev" id="prevPhoto" type="button" aria-label="Previous photo">
+        ‹
+      </button>
+
+      <div class="modal-card">
+        <img id="modalImage" src="" alt="Selected memory" />
+        <p id="modalCaption"></p>
+      </div>
+
+      <button class="modal-nav modal-next" id="nextPhoto" type="button" aria-label="Next photo">
+        ›
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

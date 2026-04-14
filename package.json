@@ -1,0 +1,29 @@
+{
+  "name": "resume-generator",
+  "version": "1.0.0",
+  "description": "Full-stack AI Resume Generator with OpenAI-powered text improvement and PDF export.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "resume",
+    "openai",
+    "express",
+    "pdf-lib",
+    "vercel",
+    "render"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^4.104.0",
+    "pdf-lib": "^1.17.1"
+  }
+}
